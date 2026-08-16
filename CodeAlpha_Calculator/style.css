@@ -1,0 +1,201 @@
+/* ===== CSS Variables for Theming ===== */
+:root {
+    --bg-gradient-start: #1e3c72;
+    --bg-gradient-end: #2a5298;
+    --calc-bg: #1c1c1c;
+    --display-bg: #2c2c2c;
+    --key-bg: #333333;
+    --key-bg-hover: #444444;
+    --key-active: #555555;
+    --number-bg: #505050;
+    --number-hover: #666666;
+    --operator-bg: #ff9500;
+    --operator-hover: #ffaa33;
+    --operator-active: #cc7700;
+    --utility-bg: #a5a5a5;
+    --utility-hover: #bdbdbd;
+    --equals-bg: #2ecc71;
+    --equals-hover: #35db82;
+    --equals-active: #28b263;
+    --text-color: #ffffff;
+    --text-secondary: #a0a0a0;
+    --shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== Global Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* ===== Calculator Container ===== */
+.calculator-app {
+    background-color: var(--calc-bg);
+    width: 100%;
+    max-width: 320px;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* ===== Display Screen ===== */
+.calculator-display {
+    background-color: var(--display-bg);
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    text-align: right;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.history {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    min-height: 24px;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+.current-input {
+    color: var(--text-color);
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* ===== Calculator Keys Grid ===== */
+.calculator-keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.key {
+    border: none;
+    border-radius: 12px;
+    padding: 18px 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text-color);
+    background-color: var(--key-bg);
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.key:hover {
+    background-color: var(--key-bg-hover);
+}
+
+.key:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Specific Button Styles ===== */
+.key.number {
+    background-color: var(--number-bg);
+}
+.key.number:hover {
+    background-color: var(--number-hover);
+}
+
+.key.operator {
+    background-color: var(--operator-bg);
+    color: #fff;
+}
+.key.operator:hover {
+    background-color: var(--operator-hover);
+}
+.key.operator:active {
+    background-color: var(--operator-active);
+}
+
+.key.utility {
+    background-color: var(--utility-bg);
+    color: #000;
+}
+.key.utility:hover {
+    background-color: var(--utility-hover);
+}
+
+.key.equals {
+    background-color: var(--equals-bg);
+    color: #fff;
+    grid-column: span 2;
+}
+.key.equals:hover {
+    background-color: var(--equals-hover);
+}
+.key.equals:active {
+    background-color: var(--equals-active);
+}
+
+.key.zero {
+    grid-column: span 1;
+}
+
+/* ===== Error State Animation ===== */
+.current-input.error {
+    color: #ff4d4d;
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 400px) {
+    .calculator-app {
+        padding: 15px;
+        max-width: 100%;
+    }
+    .key {
+        padding: 16px 0;
+        font-size: 1.2rem;
+    }
+    .current-input {
+        font-size: 2rem;
+    }
+    .history {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .calculator-app {
+        max-width: 360px;
+    }
+    .key {
+        padding: 22px 0;
+        font-size: 1.6rem;
+    }
+}

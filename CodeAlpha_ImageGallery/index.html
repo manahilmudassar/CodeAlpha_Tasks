@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Gallery - 40 Images</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Visual Gallery</h1>
+        <p>Explore our massive collection of 40 images. Use filters to find what you love.</p>
+    </header>
+
+    <!-- Filter Buttons -->
+    <nav class="filter-nav" id="filterNav">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="food">Food</button>
+        <button class="filter-btn" data-filter="tech">Tech</button>
+        <button class="filter-btn" data-filter="nature">Nature</button>
+        <button class="filter-btn" data-filter="city">City</button>
+        <button class="filter-btn" data-filter="animals">Animals</button>
+        <button class="filter-btn" data-filter="cars">Cars</button>
+        <button class="filter-btn" data-filter="architecture">Architecture</button>
+    </nav>
+
+    <!-- Gallery Grid -->
+    <main class="gallery-container">
+        <div class="gallery-grid" id="galleryGrid"></div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-btn" id="closeLightbox">&times;</span>
+        
+        <div class="lightbox-content">
+            <button class="nav-btn prev-btn" id="prevBtn">&#10094;</button>
+            <img src="" alt="Expanded view" class="lightbox-img" id="lightboxImg">
+            <button class="nav-btn next-btn" id="nextBtn">&#10095;</button>
+        </div>
+        
+        <div class="caption" id="caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

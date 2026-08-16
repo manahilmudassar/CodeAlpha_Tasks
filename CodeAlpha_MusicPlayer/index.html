@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="player-container">
+        <!-- Album Art Section -->
+        <div class="img-container">
+            <img src="" alt="Album Art" id="album-art">
+        </div>
+
+        <!-- Song Info Section -->
+        <div class="song-info">
+            <h2 id="title">Song Title</h2>
+            <h3 id="artist">Artist Name</h3>
+        </div>
+
+        <!-- Audio Element -->
+        <audio src="" id="audio"></audio>
+
+        <!-- Progress Bar Section -->
+        <div class="progress-container">
+            <span id="current-time">0:00</span>
+            <input type="range" id="progress" value="0" max="100">
+            <span id="duration">0:00</span>
+        </div>
+
+        <!-- Controls Section -->
+        <div class="controls">
+            <button id="prev" class="control-btn"><i class="fas fa-backward"></i></button>
+            <button id="play" class="control-btn main-btn"><i class="fas fa-play"></i></button>
+            <button id="next" class="control-btn"><i class="fas fa-forward"></i></button>
+        </div>
+
+        <!-- Volume Control Section -->
+        <div class="volume-container">
+            <button id="mute-btn" class="control-btn"><i class="fas fa-volume-high"></i></button>
+            <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+        </div>
+
+        <!-- Playlist Section -->
+        <div class="playlist-container">
+            <h4>Playlist</h4>
+            <ul id="playlist"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
